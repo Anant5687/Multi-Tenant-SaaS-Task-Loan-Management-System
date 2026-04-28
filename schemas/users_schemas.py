@@ -4,7 +4,6 @@ from datetime import datetime
 
 
 class UsersRequest(BaseModel):
-    id:str
     name:str
     email:EmailStr
     password: str
