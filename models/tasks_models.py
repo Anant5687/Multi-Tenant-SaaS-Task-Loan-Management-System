@@ -1,6 +1,6 @@
 from db.conn import BASE
 from sqlalchemy import Column, INTEGER, String, TIMESTAMP, text
-from schemas.loans_schemas import Status
+from  models.enums.task_enum import Status
 
 class TASK_MODEL(BASE):
     __tablename__ = "tasks"

@@ -1,6 +1,6 @@
 from db.conn import BASE
 from sqlalchemy import Column, TIMESTAMP, text, String
-from schemas.users_schemas import Roles
+from models.enums.user_enum import Roles
 
 
 class Users_Schema(BASE):
