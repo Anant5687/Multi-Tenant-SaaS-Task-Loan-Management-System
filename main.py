@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routes import users_routes
+from routes import users_routes, tenants_routes
 from db.conn import create_db
 
 app = FastAPI()
@@ -12,3 +12,4 @@ def read_root():
 
 
 app.include_router(users_routes.router)
+app.include_router(tenants_routes.router)
