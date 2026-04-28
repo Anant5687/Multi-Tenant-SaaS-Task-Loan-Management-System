@@ -1,6 +1,6 @@
 from db.conn import BASE
 from sqlalchemy import Column, text, TIMESTAMP, String, Integer
-from schemas.loans_schemas import Status
+from models.enums.loan_enum import Status
 
 class Loans_Schema(BASE):
     __tablename__ = "loans"
