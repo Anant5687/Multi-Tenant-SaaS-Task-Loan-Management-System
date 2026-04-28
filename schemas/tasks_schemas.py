@@ -3,7 +3,6 @@ from pydantic import BaseModel
 from models.enums.task_enum import Status
 
 class TaskRequest(BaseModel):
-    id: str
     title: str
     description: str
     status: Status
@@ -12,6 +11,7 @@ class TaskRequest(BaseModel):
     tenant_id: str
 
 class TaskResponse(TaskRequest):
+    id: str
     pass
 
     class Config:

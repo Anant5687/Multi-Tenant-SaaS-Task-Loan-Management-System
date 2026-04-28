@@ -2,7 +2,6 @@ from pydantic import BaseModel
 from models.enums.loan_enum import Status
 
 class LoanRequest(BaseModel):
-    id: str
     user_id: str
     amount: int
     status: Status
