@@ -11,7 +11,7 @@ def read_root():
     return {"message": "Hello World"}
 
 
-app.include_router(users_routes.router)
 app.include_router(tenants_routes.router)
-app.include_router(loans_routes.router)
+app.include_router(users_routes.router)
 app.include_router(tasks_routes.router)
+app.include_router(loans_routes.router)
