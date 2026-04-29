@@ -68,13 +68,16 @@ class LoansService:
         return new_loan
     
     @staticmethod
-    def update_loan(id: str, data: LoanRequest, db: Session):
+    def update_loan(id: str, amount: float, status: str, data: LoanRequest, db: Session):
         LoansService.validate_loan_request(data, db)
 
         loan = LoansService.get_loan_by_id(id, db)
 
         for key, value in data.dict().items():
             setattr(loan, key, value)
+
+        loan.amount = amount
+        loan.status = status
 
         db.commit()
         db.refresh(loan)
