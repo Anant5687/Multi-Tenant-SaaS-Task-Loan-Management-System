@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 from fastapi import HTTPException
 from models.users_models import Users_Schema
 from schemas.users_schemas import UsersRequest
+from models.tenants_models import Tenants_Schema
 
 
 class UserService:
@@ -31,6 +32,16 @@ class UserService:
         existing_user = db.query(Users_Schema).filter(
             Users_Schema.email == data.email
         ).first()
+
+        tenant = db.query(Tenants_Schema).filter(
+            Tenants_Schema.id == data.tenant_id
+        ).first()
+
+        if not tenant:
+            raise HTTPException(
+                status_code=404,
+                detail=f"No tenant registered witn this {data.tenant_id}"
+            )
 
         if existing_user:
             raise HTTPException(
